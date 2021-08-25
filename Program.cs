@@ -8,18 +8,31 @@ namespace GuessingGame
         {
             int secretNumber = 42;
 
+            int turnCounter = 0;
+
             Console.WriteLine("Guess the Secret Number!");
             Console.WriteLine("Type a number between 1 and 100 and hit enter:");
 
             int response = int.Parse(Console.ReadLine());
 
-            if (response == secretNumber) 
+            while (turnCounter < 4)
             {
-                Console.WriteLine("Congrats, you guessed the secret number!");
+                if (response == secretNumber) 
+                {
+                    Console.WriteLine("Congrats, you guessed the secret number!");
+                    break;
+                }
+                else
+                {
+                    turnCounter++;
+                    Console.WriteLine($"{response} is not the secret number. Try again:");
+                    response = int.Parse(Console.ReadLine());
+                }
             }
-            else
+
+            if (response != secretNumber)
             {
-                Console.WriteLine($"{response} is not the secret number. That's too bad...");
+                Console.WriteLine("Sorry, you've used all your guesses. You lose");
             }
         }
     }
