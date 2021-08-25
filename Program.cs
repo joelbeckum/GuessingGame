@@ -6,12 +6,21 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
+            int secretNumber = 42;
+
             Console.WriteLine("Guess the Secret Number!");
             Console.WriteLine("Type a number between 1 and 100 and hit enter:");
 
-            string response = Console.ReadLine();
+            int response = int.Parse(Console.ReadLine());
 
-            Console.WriteLine($"You guessed {response}. Interesting choice...");
+            if (response == secretNumber) 
+            {
+                Console.WriteLine("Congrats, you guessed the secret number!");
+            }
+            else
+            {
+                Console.WriteLine($"{response} is not the secret number. That's too bad...");
+            }
         }
     }
 }
