@@ -6,7 +6,7 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
-            int secretNumber = 42;
+            int secretNumber = new Random().Next(1, 100);
 
             int turnCounter = 0;
 
@@ -24,8 +24,13 @@ namespace GuessingGame
                 }
                 else
                 {
+                    string guessString = "guesses";
+                    if ((4-turnCounter) == 1)
+                    {
+                        guessString = "guess";
+                    }
                     turnCounter++;
-                    Console.WriteLine($"{response} is not the secret number. Try again:");
+                    Console.WriteLine($"{response} is not the secret number. You have {5-turnCounter} {guessString} left. Try again:");
                     response = int.Parse(Console.ReadLine());
                 }
             }
