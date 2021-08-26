@@ -24,13 +24,19 @@ namespace GuessingGame
                 }
                 else
                 {
+                    string highLowString = "too high";
                     string guessString = "guesses";
                     if ((4-turnCounter) == 1)
                     {
                         guessString = "guess";
                     }
+                    if (response < secretNumber)
+                    {
+                        highLowString = "too low";
+                    }
+                    
                     turnCounter++;
-                    Console.WriteLine($"{response} is not the secret number. You have {5-turnCounter} {guessString} left. Try again:");
+                    Console.WriteLine($"{response} is {highLowString}. You have {5-turnCounter} {guessString} left. Try again:");
                     response = int.Parse(Console.ReadLine());
                 }
             }
