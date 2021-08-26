@@ -35,6 +35,12 @@ namespace GuessingGame
                         Console.WriteLine("Difficulty set to 'hard.' You have four guesses to find the secret number.");
                         break;
 
+                    case 99:
+                        difficultyLevel = 99;
+                        turnCounter = 99;
+                        Console.WriteLine("Oh, you found cheat code 99, you repo-peeking cheater! Enjoy typing numbers for the next five minutes. :)");
+                        break;
+
                     default:
                         Console.WriteLine("You must enter a number between 1 and 3 to continue:");
                         break;
@@ -64,8 +70,10 @@ namespace GuessingGame
                     {
                         highLowString = "too low";
                     }
-                    
-                    turnCounter--;
+                    if (turnCounter != 99)
+                    {
+                        turnCounter--;
+                    }
                     Console.WriteLine($"{response} is {highLowString}. You have {turnCounter} {guessString} left. Try again:");
                     response = int.Parse(Console.ReadLine());
                 }
